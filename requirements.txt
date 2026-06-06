@@ -1,0 +1,8 @@
+gradio
+pdfplumber
+pymupdf
+pillow
+easyocr
+pytesseract
+numpy
+pandas
