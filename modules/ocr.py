@@ -52,13 +52,13 @@ def extract_scanned_pdf_text(pdf_path):
 
     print(f"Pages found: {len(doc)}")
 
-    for page_num in range(len(doc)):
+    for page_num in range(1, len(doc)):
 
         print(f"Processing page {page_num + 1}")
 
         page = doc.load_page(page_num)
 
-        pix = page.get_pixmap(matrix=fitz.Matrix(2, 2))
+        pix = page.get_pixmap(matrix=fitz.Matrix(1, 1))
 
         img = np.frombuffer(
             pix.samples,

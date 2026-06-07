@@ -1,6 +1,7 @@
 import gradio as gr
 
 from modules.ocr import extract_text
+from modules.extractor import build_master_json
 
 
 def analyze_document(file):
@@ -10,13 +11,9 @@ def analyze_document(file):
 
     extracted_text = extract_text(file.name)
 
-    return f"""
-    Document Processed Successfully
+    master_json = build_master_json(extracted_text)
 
-    ----------------------------
-
-    {extracted_text}
-    """
+    return master_json
 
 
 with gr.Blocks(title="PaperPilot") as demo:
@@ -27,9 +24,8 @@ with gr.Blocks(title="PaperPilot") as demo:
         label="Upload Form"
     )
 
-    output_text = gr.Textbox(
-        label="Extracted Text",
-        lines=20
+    output_json = gr.JSON(
+    label="Form Analysis"
     )
 
     analyze_btn = gr.Button(
@@ -39,7 +35,7 @@ with gr.Blocks(title="PaperPilot") as demo:
     analyze_btn.click(
         fn=analyze_document,
         inputs=file_input,
-        outputs=output_text
+        outputs=output_json
     )
 
 demo.launch()
