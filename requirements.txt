@@ -6,3 +6,5 @@ easyocr
 pytesseract
 numpy
 pandas
+python-dotenv
+requests
