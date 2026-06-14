@@ -1,0 +1,194 @@
+/* PaperPilot Custom UI (competition-grade) */
+
+:root{
+  --pp-bg: #f6f7fb;
+  --pp-surface: rgba(255,255,255,.85);
+  --pp-text: #0f172a;
+  --pp-muted: rgba(15, 23, 42, .65);
+
+  --pp-border: rgba(15, 23, 42, .10);
+  --pp-border-strong: rgba(15, 23, 42, .16);
+  --pp-shadow: 0 14px 40px rgba(2, 6, 23, .08);
+
+  --pp-primary: #2563eb;
+  --pp-primary-2: #4f46e5;
+  --pp-primary-ink: #ffffff;
+
+  --pp-focus: 0 0 0 4px rgba(37,99,235,.18);
+
+  --pp-radius-lg: 18px;
+  --pp-radius-md: 14px;
+}
+
+.dark{
+  --pp-bg: #0b1220;
+  --pp-surface: rgba(17, 24, 39, .65);
+  --pp-text: #e5e7eb;
+  --pp-muted: rgba(229, 231, 235, .62);
+
+  --pp-border: rgba(148, 163, 184, .14);
+  --pp-border-strong: rgba(148, 163, 184, .22);
+  --pp-shadow: 0 18px 60px rgba(0,0,0,.35);
+
+  --pp-primary: #3b82f6;
+  --pp-primary-2: #6366f1;
+
+  --pp-focus: 0 0 0 4px rgba(59,130,246,.25);
+}
+
+.gradio-container{
+  max-width: 1280px !important;
+  padding: 18px 14px !important;
+}
+
+body{
+  background: radial-gradient(900px 450px at 10% 10%, rgba(37,99,235,.14), transparent 55%),
+              radial-gradient(900px 450px at 95% 5%, rgba(79,70,229,.12), transparent 60%),
+              var(--pp-bg) !important;
+}
+
+footer{ display:none !important; }
+
+/* App bar */
+#appbar{
+
+  border-radius: var(--pp-radius-lg);
+  padding: 10px 14px;
+  border: 1px solid var(--pp-border);
+  background: linear-gradient(135deg, rgba(255,255,255,.75), rgba(255,255,255,.45));
+  box-shadow: 0 10px 30px rgba(2, 6, 23, .05);
+}
+.dark #appbar{
+  background: linear-gradient(135deg, rgba(17,24,39,.70), rgba(17,24,39,.45));
+  box-shadow: 0 12px 45px rgba(0,0,0,.25);
+}
+
+.appbar{ display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+.appbar-left{ display:flex; align-items:center; gap: 12px; }
+.brand-mark{
+  width: 40px; height: 40px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius: 14px;
+  border: 1px solid var(--pp-border);
+  background: linear-gradient(135deg, rgba(37,99,235,.12), rgba(99,102,241,.08));
+  font-size: 18px;
+}
+.brand-title{ font-weight: 900; letter-spacing: -0.03em; font-size: 16px; color: var(--pp-text); }
+.brand-subtitle{ font-size: 12px; color: var(--pp-muted); margin-top: 2px; }
+
+.status-pill{
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--pp-border);
+  background: rgba(37,99,235,.08);
+  color: var(--pp-text);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Cards */
+.pp-card{
+  border-radius: var(--pp-radius-lg) !important;
+  border: 1px solid var(--pp-border) !important;
+  background: var(--pp-surface) !important;
+  box-shadow: var(--pp-shadow);
+  backdrop-filter: blur(10px);
+}
+
+.pp-card .gr-panel{
+  background: transparent !important;
+  border-radius: var(--pp-radius-lg) !important;
+}
+
+.pp-card .card-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  padding: 14px 16px 8px 16px;
+}
+
+.card-title{ font-weight: 950; letter-spacing: -0.03em; color: var(--pp-text); }
+.card-subtitle{ font-size: 12px; color: var(--pp-muted); font-weight: 650; margin-top: 3px; }
+
+.pp-muted{ color: var(--pp-muted) !important; }
+
+.pp-empty{
+  padding: 10px 14px;
+  border-radius: var(--pp-radius-md);
+  border: 1px dashed var(--pp-border-strong);
+  background: rgba(37,99,235,.06);
+}
+.dark .pp-empty{ background: rgba(59,130,246,.10); }
+
+/* Inputs focus */
+.gradio-container input:focus,
+.gradio-container textarea:focus{
+  outline: none !important;
+  box-shadow: var(--pp-focus);
+  border-color: rgba(37,99,235,.55) !important;
+}
+
+/* Buttons */
+button{ border-radius: 12px !important; font-weight: 800 !important; }
+
+button[variant="primary"],
+button.primary{
+  background: linear-gradient(135deg, var(--pp-primary), var(--pp-primary-2)) !important;
+  color: var(--pp-primary-ink) !important;
+  border: 1px solid rgba(0,0,0,0) !important;
+}
+
+button[variant="secondary"],
+button.secondary{
+  background: rgba(37,99,235,.08) !important;
+  color: var(--pp-text) !important;
+  border: 1px solid var(--pp-border) !important;
+}
+
+/* Upload area */
+.gradio-container .file-input{
+  border-radius: var(--pp-radius-md) !important;
+  border: 1px dashed var(--pp-border-strong) !important;
+  background: rgba(255,255,255,.25) !important;
+}
+.dark .gradio-container .file-input{ background: rgba(17,24,39,.2) !important; }
+
+/* DataFrame styling */
+.gradio-container .ag-header{
+  background: rgba(37,99,235,.12) !important;
+  border-bottom: 1px solid var(--pp-border) !important;
+}
+
+.gradio-container .ag-row:nth-child(even) .ag-cell{
+  background: rgba(37,99,235,.04) !important;
+}
+
+/* Chat UI */
+#qa-chat{
+
+  border-radius: var(--pp-radius-md) !important;
+  border: 1px solid var(--pp-border) !important;
+  background: rgba(255,255,255,.35) !important;
+}
+.dark #qa-chat{ background: rgba(17,24,39,.35) !important; }
+
+/* Footer */
+.custom-footer{
+  text-align:center;
+  margin-top: 12px;
+  padding: 14px 10px;
+  border-top: 1px solid var(--pp-border);
+  color: var(--pp-muted);
+  font-weight: 650;
+}
+
+#main-row{ gap: 14px !important; }
+#left-col, #right-col{ gap: 12px !important; }
+#center-col{ gap: 12px !important; }
+
+.metrics-row{ display:flex; gap: 12px; padding: 0 16px 14px 16px; }
+.metric{ flex:1; border-radius: 14px; border: 1px solid var(--pp-border); background: rgba(255,255,255,.35); padding: 10px 12px; }
+.dark .metric{ background: rgba(17,24,39,.35); }
+.metric-label{ color: var(--pp-muted); font-size: 12px; font-weight: 700; }
+.metric-value{ margin-top: 5px; font-weight: 900; color: var(--pp-text); }
+
